@@ -1,0 +1,23 @@
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+    {% load static %}
+    {% load mptt_tags %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <div class="container">
+        {% recursetree employer_list %}
+            <details>
+                <summary>
+                    <i class="fa fa-circle"></i>
+                    <div class="selector"></div>
+                    <h4 style="font-family: AppleGothic; font-size: 15pt; margin: -15px 0px 0px 4px;"> {{ node.name }}</h4>
+                    <h7 style="font-family: cursive"> {{ node.position }}</h7>
+                </summary>
+                {% if not node.is_leaf_node %}
+                    <ul class="children" style="padding: 0; margin-top: 0px">
+                        {{ children }}
+                    </ul>
+                {% endif %}
+            </details>
+        {% endrecursetree %}
+    </div>
+</html>

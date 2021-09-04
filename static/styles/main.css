@@ -1,0 +1,94 @@
+body {
+  background-color: rgba(68, 150, 129, 0.73);
+  color: white;
+}
+
+.container {
+  width: 30%;
+  height: 75%;
+  background: rgba(8, 69, 3, 0.45);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: overlay;
+  transition: .4s;
+}
+
+.container:hover {
+  transition: .4s;
+  display: inline-block;
+  width: 100%;
+}
+
+details {
+  padding-left: 16px;
+  padding-top: 8px;
+  position: relative;
+  outline: none;
+}
+details:focus, details:active {
+  outline: none;
+}
+  details:last-child:before {
+  height: 16px;
+}
+details:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  top: -8px;
+  border-left: 1px dotted;
+}
+details[open] > summary::before {
+  width: 16px;
+}
+details[open] > summary i::before {
+  content: "";
+}
+details summary {
+  color: white;
+  padding-left: 16px;
+  outline: none;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+details summary::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  top: 0px;
+  left: 16px;
+  border-bottom: 1px dotted;
+}
+details summary:focus, details summary:active {
+  outline: none;
+}
+details summary:hover {
+  color: #fff;
+  cursor: pointer;
+}
+details summary:hover .selector {
+  transition: background-color 0.3s;
+  background-color: rgba(73, 73, 74, 0.71);
+}
+details summary i {
+  font-size: 18px;
+  margin-left: -22px;
+  margin-right: 20px;
+  width: auto;
+  background: #414042;
+  border-radius: 6px;
+}
+details summary .selector {
+  position: absolute;
+  top: 0;
+  left: -200px;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  pointer-events: none;
+  border-bottom: 1px solid #383838;
+  z-index: -1;
+}
